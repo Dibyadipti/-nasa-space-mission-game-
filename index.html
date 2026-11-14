@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASTRA-SIM | NASA Space Mission Design Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="badge">NASA SPACE APPS 2026</span>
+      <h1>ASTRA-SIM // Mission Architect</h1>
+    </div>
+    <div class="telemetry-bar" id="telemetry-bar">
+      <div class="metric">
+        <span>BUDGET</span>
+        <strong id="stat-budget">$500M / $500M</strong>
+      </div>
+      <div class="metric">
+        <span>PAYLOAD MASS</span>
+        <strong id="stat-mass">0 / 2,500 kg</strong>
+      </div>
+      <div class="metric">
+        <span>NET POWER</span>
+        <strong id="stat-power">0 W</strong>
+      </div>
+      <div class="metric">
+        <span>SCIENCE SCORE</span>
+        <strong id="stat-science">0 pts</strong>
+      </div>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <!-- Left Panel: Configuration -->
+    <section class="panel config-panel">
+      <h2>1. Mission Objective & Orbit</h2>
+      <div class="grid-cards" id="objective-list"></div>
+
+      <h2>2. Launch Vehicle</h2>
+      <div class="grid-cards" id="rocket-list"></div>
+
+      <h2>3. Spacecraft Bus & Power</h2>
+      <div class="grid-cards" id="power-list"></div>
+
+      <h2>4. Communications & Avionics</h2>
+      <div class="grid-cards" id="comms-list"></div>
+
+      <h2>5. Scientific Payloads (Multi-Select)</h2>
+      <div class="grid-cards" id="payload-list"></div>
+    </section>
+
+    <!-- Right Panel: Live Simulation & Engineering Analysis -->
+    <section class="panel sim-panel">
+      <div class="canvas-wrapper">
+        <canvas id="orbitCanvas" width="640" height="360"></canvas>
+        <div class="hud-overlay">
+          <span id="mission-phase">STATUS: PRE-LAUNCH CONFIGURATION</span>
+          <span id="mission-day">MISSION DAY: 0</span>
+        </div>
+      </div>
+
+      <div class="validation-box" id="validation-box">
+        <h3>Engineering Readiness Check</h3>
+        <ul id="validation-list"></ul>
+      </div>
+
+      <div class="controls">
+        <button id="launch-btn" class="btn-primary">INITIATE LAUNCH & SIMULATE</button>
+        <button id="reset-btn" class="btn-secondary">RESET DESIGN</button>
+      </div>
+
+      <div class="log-panel">
+        <h3>Mission Telemetry & Event Log</h3>
+        <div id="event-log" class="log-feed">
+          <p class="log-info">> Configure your spacecraft systems on the left to begin.</p>
+        </div>
+      </div>
+
+      <div id="debrief-modal" class="debrief hidden">
+        <h2 id="debrief-title">MISSION DEBRIEF</h2>
+        <p id="debrief-summary"></p>
+        <div id="debrief-stats" class="debrief-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
